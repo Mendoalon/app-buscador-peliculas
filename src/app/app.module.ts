@@ -9,13 +9,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { TarjetaPeliculaComponent } from './components/tarjeta-pelicula/tarjeta-pelicula.component';
+import { ImagenDefaulPipe } from './pipes/imagen-defaul.pipe';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PeliculasComponent,
-    TarjetaPeliculaComponent
+    TarjetaPeliculaComponent,
+    ImagenDefaulPipe
   ],
   imports: [
     BrowserModule,
