@@ -1,12 +1,15 @@
-<div class="movie">
+<div *ngFor="let pelicula of peliculas"
+     class="movie">
     <div>
-        <p>2002</p>
+        <p>{{pelicula.Year}}</p>
     </div>
     <div>
-        <img src="https://via.placeholder.com/400" alt="">
+        <img [src]="pelicula.Poster" alt="">
     </div>
     <div>
-        <span>Movie Type</span>
-        <h3>Titulo</h3>
+        <span>{{pelicula.Type}}</span>
+        <h3>{{pelicula.Title}}</h3>
     </div>
 </div>
+
+
