@@ -1,17 +1,25 @@
-<div class="app">
-    <h1>Listado de peliculas</h1>
-    <div class="search">
-        <form  >
-            <input type="text" 
-                   placeholder="Buscar peliculas..">
-            <img   
-                  src="../../../assets/search.svg" alt="Buscar">
- 
-        </form>
-    </div>
-    <div class="container">
-        <app-tarjeta-pelicula></app-tarjeta-pelicula>
-    </div>
-</div>
+<form [formGroup]="miFormulario" >
+    <div class="app">
+
+        <h1>Listado de peliculas</h1>
+
+        <div class="search">
+            <input  formControlName="titulo"
+                    type="text" placeholder="Buscar peliculas..">
+        </div>
 
 
+        <div *ngIf="sinresultado !== true " class="container">
+            <app-tarjeta-pelicula></app-tarjeta-pelicula>
+        </div>
+
+
+
+        <div *ngIf="sinresultado === true " class="empty">
+            <h2>No se encontraron películas</h2>
+        </div>
+
+
+    </div>
+
+</form>

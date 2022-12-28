@@ -1,15 +1,14 @@
-<div *ngFor="let pelicula of peliculas"
-     class="movie">
-    <div>
-        <p>{{pelicula.Year}}</p>
-    </div>
-    <div>
-        <img [src]="pelicula.Poster |imagenDefaul" alt="">
-    </div>
-    <div>
-        <span>{{pelicula.Type}}</span>
-        <h3>{{pelicula.Title}}</h3>
+<div *ngFor="let pelicula of peliculas">
+    <div class="movie">
+        <div>
+            <p>{{pelicula.Year}}</p>
+        </div>
+        <div>
+            <img [src]="pelicula.Poster |imagenDefaul" alt="">
+        </div>
+        <div>
+            <span>{{pelicula.Type}}</span>
+            <h3>{{pelicula.Title}}</h3>
+        </div>
     </div>
 </div>
-
-

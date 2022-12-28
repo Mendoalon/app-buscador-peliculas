@@ -6,15 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ImagenDefaulPipe implements PipeTransform {
 
   transform(imagen: string): any {
-    if(imagen === 'N/A'){     
-      return 'assets/search.svg';
-    }
 
-    if(imagen.length > 0 ){      
-      return imagen
-    }else{
-      return 'assert/search.svg';
-    }
-  }
+    return (imagen !== 'N/A') ? imagen : 'assets/imagenDefaul.png';
+ }
 
 }

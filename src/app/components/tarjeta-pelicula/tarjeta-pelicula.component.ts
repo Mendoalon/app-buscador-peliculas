@@ -22,11 +22,9 @@ export class TarjetaPeliculaComponent implements OnInit {
   
     setTimeout(() => {
 
-    this._peliculaService.SharingObservable.subscribe( data =>{
-      this.peliculas =  data;
-      console.log(data);
-      
-    })
+      this._peliculaService.SharingObservable.subscribe(data=>{
+        this.peliculas =  data;
+      })
      
     }, 1000)
 

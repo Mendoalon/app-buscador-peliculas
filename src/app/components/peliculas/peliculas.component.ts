@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { debounceTime, switchMap } from 'rxjs';
 import { PeliculaService } from '../../services/pelicula.service';
-import { Pelicula } from 'src/app/interfaces/Peliculas.interfaces';
+
+
 
 @Component({
   selector: 'app-peliculas',
@@ -8,24 +11,58 @@ import { Pelicula } from 'src/app/interfaces/Peliculas.interfaces';
   styleUrls: ['./peliculas.component.css']
 })
 export class PeliculasComponent implements OnInit {
- 
+  sinresultado: boolean = false;
+  miFormulario: FormGroup;
 
   constructor(
     private _peliculaService: PeliculaService) {
 
-
-
-
+    this.miFormulario = new FormGroup({
+      titulo: new FormControl('')
+    })
   }
 
   ngOnInit(): void {
 
-    this._peliculaService.PeliculasData('messi').subscribe();
+    //TODO: Se captura el dato del input.
+    this.miFormulario.get('titulo')?.valueChanges.pipe(
+      debounceTime(500)).subscribe(
+        titulo => {
+              //TODO: Se valida el dato del input.
+          if (titulo !== '' && titulo.length > 3) {
+            this._peliculaService.PeliculasData(titulo).subscribe(res => {
+               //TODO: Se valida la respuesta de la api
+              (res.length > 0) ? this.sinresultado = false : this.sinresultado = true;
+
+            })
+          }
+        }
+      )
 
   }
 
 
+
+
 }
+
+
+  // setPelicula(pelicula: string) {
+  //   console.log(pelicula);
+  //   if (pelicula.length > 0) {
+  //     this._peliculaService.PeliculasData(pelicula).subscribe(data => {
+  //       console.log(data)
+  //       return;
+  //     }
+  //     )
+  //   }
+
+
+
+
+
+
+
 
 
 
