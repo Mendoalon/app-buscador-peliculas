@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Movie } from 'src/app/interfaces/movies';
 import { PeliculaService } from 'src/app/services/pelicula.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -7,27 +9,15 @@ import { PeliculaService } from 'src/app/services/pelicula.service';
   templateUrl: './tarjeta-pelicula.component.html',
   styleUrls: ['./tarjeta-pelicula.component.css']
 })
-export class TarjetaPeliculaComponent implements OnInit {
-  
- // peliculas: Pelicula = { Title:  '', Year: '', imdbID: '', Type: '',    Poster: '',};
+export class TarjetaPeliculaComponent {
 
- peliculas: any;
+  peliculas$: Observable<Movie[]>;
 
 
-  constructor(private _peliculaService: PeliculaService) { }
-
-
-  ngOnInit(): void {
-
-  
-    setTimeout(() => {
-
-      this._peliculaService.SharingObservable.subscribe(data=>{
-        this.peliculas =  data;
-      })
-     
-    }, 1000)
-
+  constructor(_peliculaService: PeliculaService) {
+    //TODO:  optenemos la respuesta de la api para mostrar en el html.
+    this.peliculas$ = _peliculaService.SharingObservable;
   }
+
 
 }

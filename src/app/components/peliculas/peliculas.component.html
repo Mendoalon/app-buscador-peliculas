@@ -1,25 +1,21 @@
-<form [formGroup]="miFormulario" >
-    <div class="app">
+<div class="app">
 
-        <h1>Listado de peliculas</h1>
+    <h1>Listado de peliculas</h1>
 
-        <div class="search">
-            <input  formControlName="titulo"
-                    type="text" placeholder="Buscar peliculas..">
-        </div>
-
-
-        <div *ngIf="sinresultado !== true " class="container">
-            <app-tarjeta-pelicula></app-tarjeta-pelicula>
-        </div>
-
-
-
-        <div *ngIf="sinresultado === true " class="empty">
-            <h2>No se encontraron películas</h2>
-        </div>
-
-
+    <div class="search">
+        <form [formGroup]="miFormulario">
+            <input formControlName="titulo" type="text"                    placeholder="Buscar peliculas..">
+        </form>
     </div>
 
-</form>
+
+    <div *ngIf="sinresultado !== true " class="container">
+        <app-tarjeta-pelicula></app-tarjeta-pelicula>
+    </div>
+
+
+    <div *ngIf="sinresultado === true " class="empty">
+        <h2>No se encontraron películas</h2>
+    </div>
+
+</div>

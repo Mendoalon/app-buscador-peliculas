@@ -47,16 +47,6 @@ export class PeliculasComponent implements OnInit {
 }
 
 
-  // setPelicula(pelicula: string) {
-  //   console.log(pelicula);
-  //   if (pelicula.length > 0) {
-  //     this._peliculaService.PeliculasData(pelicula).subscribe(data => {
-  //       console.log(data)
-  //       return;
-  //     }
-  //     )
-  //   }
-
 
 
 

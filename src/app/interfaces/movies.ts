@@ -1,3 +1,4 @@
+//TODO: Interface para los datos de las peliculas.
 export interface Movie {
     Title:  string;
     Year:   string;

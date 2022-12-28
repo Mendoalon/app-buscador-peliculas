@@ -25,12 +25,13 @@ export class PeliculaService {
 
   }
 
-
+//TODO: Funcion para realizar la peticion de la api.
   PeliculasData(pelicula: string): Observable<Movie[]> {
 
     return this.http.get<ApiResponse>(`${this.URL}${this.API_KEY}&s=${pelicula}`).pipe(
       map( data => {
         if(data.Search !== undefined){
+          //TODO: Se captura datos de la api en el BehaviorSubject. 
           this.peliculas.next(data.Search); 
           return data.Search;
         }else{
@@ -44,7 +45,7 @@ export class PeliculaService {
   }
 
 
-
+//TODO: Funcion para optener los datos guardados en el BehaviorSubject.
   get SharingObservable(): Observable<Movie[]>{
      return this.peliculas.asObservable();
    }
